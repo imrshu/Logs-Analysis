@@ -15,8 +15,8 @@ If you are on Linux & Mac just run below command with **sudo** to install psql
 
 ### Steps To Run The Project
 
-1.  Clone The Repo At [click here]("https://github.com/imrshu/Logs-Analysis")
-2.	Download newsdata.sql file At [click here]("https://drive.google.com/file/d/0B_qzAKxW64G-VFJZLWZ3SHdZUVk/view?usp=sharing")
+1.  Clone The Repo At [click here](https://github.com/imrshu/Logs-Analysis)
+2.	Download newsdata.sql file At [click here](https://drive.google.com/file/d/0B_qzAKxW64G-VFJZLWZ3SHdZUVk/view?usp=sharing)
 3.  Copy & Paste newsdata.sql file in project's folder
 4.  Take the project's folder to the vagrant directory
 5.  Open up the terminal
