@@ -24,7 +24,7 @@ If you are on Linux & Mac just run below command with **sudo** to install psql
 7.  Run `vagrant ssh` command to Log In your VM Machine
 8.  Run `cd /vagrant` command to make sure that you are in vagrant folder in VM machine
 9.  Change Directory to project's folder that you have pasted in vagrant folder
-10. Run `psql -d news` command to connect to the database
+10. Run `psql -d news -f newsdata.sql` command to connect to the database & load the data
 11. Head over to **Views** section to make views in the database
 12. Finally Run `python app.py` command in terminal to start the application
 
