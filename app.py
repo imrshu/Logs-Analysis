@@ -10,21 +10,21 @@ def connect(dbname):
         c = conn.cursor()
         return (conn, c)
     except psycopg2.DatabaseError as error:
-    	print(Error)
+        print(error)
         return None
 
 
 # This function executes the sql query
 def query_executer(sql_query):
-	"""execute_query takes an SQL query as a parameter,
-	executes the query and returns the results
-	as a list of tuples.
+    """execute_query takes an SQL query as a parameter,
+    executes the query and returns the results
+    as a list of tuples.
 
-       args:
-        sql_query - (string) an SQL query statement to be executed.
+    args:
+    sql_query - (string) an SQL query statement to be executed.
 
-       returns:
-        results - A list of tuples containing the results of the query.
+    returns:
+    results - A list of tuples containing the results of the query.
     """
 
     cur = connect("news")
@@ -42,10 +42,10 @@ def query_executer(sql_query):
 def popular_articles():
 
     query = (
-        "select articles.title, count(*) as num_of_views from articles, log"
-        " where log.path = concat('/article/', articles.slug)"
-        " and log.status = '200 OK' group by articles.title"
-        " order by num_of_views desc limit 3")
+        """select articles.title, count(*) as num_of_views from articles, log
+        where log.path = concat('/article/', articles.slug)
+        and log.status = '200 OK' group by articles.title
+        order by num_of_views desc limit 3""")
 
     results = query_executer(query)
 
@@ -59,10 +59,10 @@ def popular_articles():
 def popular_authors():
 
     query = (
-        "select authors.name, count(*) as num_of_views from articles,"
-        " authors, log where log.path = concat('/article/', articles.slug)"
-        " and articles.author = authors.id group by authors.name"
-        " order by num_of_views desc")
+        """select authors.name, count(*) as num_of_views from articles,
+        authors, log where log.path = concat('/article/', articles.slug)
+        and articles.author = authors.id group by authors.name
+        order by num_of_views desc""")
 
     results = query_executer(query)
 
@@ -75,12 +75,12 @@ def popular_authors():
 # function returns date with more than 1% request error
 def days_with_lotsoferrors():
 
-    query = ("SELECT to_char(status_error.dates, 'dd-mm-yyyy'),"
-             " round((status_error.e*1.0 / requests_sum.r*1.0)*100, 2)"
-             " as per FROM status_error, requests_sum WHERE"
-             " status_error.dates = requests_sum.dates and"
-             " (status_error.e*1.0 / requests_sum.r*1.0)*100 > 1"
-             " ORDER BY per desc")
+    query = ("""SELECT to_char(status_error.dates, 'dd-mm-yyyy'),
+             round((status_error.e*1.0 / requests_sum.r*1.0)*100, 2)
+             as per FROM status_error, requests_sum WHERE
+             status_error.dates = requests_sum.dates and
+             (status_error.e*1.0 / requests_sum.r*1.0)*100 > 1
+             ORDER BY per desc""")
 
     results = query_executer(query)
 
