@@ -5,7 +5,7 @@ Logs Analysis is a project that utilizes PostgreSQL database and Python3 to quer
 
 ## Requirements
 
-- Must have Python installed on system
+- Must have Python3 installed on system
 - Must have Vagrant (VM) Installed on system
 - Must have PostgreSQL (psql) installed on system
 
@@ -26,12 +26,16 @@ If you are on Linux & Mac just run below command with **sudo** to install psql
 9.  Change Directory to project's folder that you have pasted in vagrant folder
 10. Run `psql -d news -f newsdata.sql` command to connect to the database & load the data
 11. Head over to **Views** section to make views in the database
-12. Finally Run `python app.py` command in terminal to start the application
+12. Finally Run `python3 app.py` command in terminal to start the application
 
 ### Views
-> create view status_error as select date_trunc('day', time) "dates", count(*) as e from log where status= '404 NOT FOUND' group by dates;
+```SQL
+create view status_error as select date_trunc('day', time) "dates", count(*) as e from log where status= '404 NOT FOUND' group by dates;
+```
 
-> create view requests_sum as select date_trunc('day', time) "dates", count(status) as r from log group by dates;
+```SQL
+create view requests_sum as select date_trunc('day', time) "dates", count(status) as r from log group by dates;
+```
 
 
 **Note**
