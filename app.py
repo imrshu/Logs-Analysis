@@ -8,10 +8,8 @@ def connect(dbname):
 	try:
 		conn = psycopg2.connect('dbname= %s' % dbname)
 		c = conn.cursor()
-		print("Connection Establish")
 		return (conn, c)
 	except:
-		print("Could not connect to database")
 		return None
 
 
@@ -32,9 +30,9 @@ def query_executer(sql_query):
 # This function returns most popular 3 articles
 def popular_articles():
 
-	query = ("select articles.title, count(log.status) as num_of_views from articles, log"
-		" where log.path like '%' || articles.slug || '%' group by articles.title"
-		" order by num_of_views desc limit 3")
+	query = ("select articles.title, count(*) as num_of_views from articles, log"
+		" where log.path = concat('/article/', articles.slug) and log.status = '200 OK'"
+		" group by articles.title order by num_of_views desc limit 3")
 
 	results = query_executer(query)
 
@@ -48,12 +46,12 @@ def popular_articles():
 def popular_authors():
 
 	query = ("select authors.name, count(*) as num_of_views from articles, authors, log"
-    " where log.path like '%' || articles.slug || '%' and articles.author = authors.id	 "
-    " group by authors.name order by num_of_views desc limit 3")
+    " where log.path = concat('/article/', articles.slug) and articles.author = authors.id	 "
+    " group by authors.name order by num_of_views desc")
 
 	results = query_executer(query)
 
-	print("Most Popluar Three Articles Authors\n")
+	print("\nMost Popluar Three Articles Authors\n")
 
 	for result in results:
 		print(result[0] + ' - views ' + str(result[1]))
@@ -72,7 +70,7 @@ def days_with_lotsoferrors():
 
 	results = query_executer(query)
 
-	print("Days with more than 1'%' request errors\n")
+	print("\nDays with more than 1'%' request errors\n")
 
 	for result in results:
 		print(result[0] + " - Request Error percentage is:- " + str(result[1]) + "%")
