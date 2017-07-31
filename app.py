@@ -16,6 +16,16 @@ def connect(dbname):
 
 # This function executes the sql query
 def query_executer(sql_query):
+	"""execute_query takes an SQL query as a parameter,
+	executes the query and returns the results
+	as a list of tuples.
+
+       args:
+        sql_query - (string) an SQL query statement to be executed.
+
+       returns:
+        results - A list of tuples containing the results of the query.
+    """
 
     cur = connect("news")
 
