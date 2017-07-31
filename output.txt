@@ -13,4 +13,4 @@ Ques 2:- Who are the most popular article authors of all time?
 
 Ques 3:- On which days did more than 1% of requests lead to errors?
  Ans:
- 	17-07-2016 - Request Error percentage is:- 2.26%
+ 	July 17, 2016 - Request Error percentage is:- 2.26%
