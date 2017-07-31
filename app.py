@@ -9,7 +9,8 @@ def connect(dbname):
         conn = psycopg2.connect('dbname= %s' % dbname)
         c = conn.cursor()
         return (conn, c)
-    except BaseException:
+    except psycopg2.DatabaseError as error:
+    	print(Error)
         return None
 
 
