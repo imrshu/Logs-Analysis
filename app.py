@@ -51,8 +51,8 @@ def popular_articles():
 
     print("Most Popular Three Articles\n")
 
-    for result in results:
-        print(result[0] + " - views " + str(result[1]))
+    for title, views in results:
+        print(title + " - views " + str(views))
 
 
 # This function returns most popular 3 authors
@@ -68,8 +68,8 @@ def popular_authors():
 
     print("\nMost Popluar Three Articles Authors\n")
 
-    for result in results:
-        print(result[0] + ' - views ' + str(result[1]))
+    for name, views in results:
+        print(name + ' - views ' + str(views))
 
 
 # function returns date with more than 1% request error
@@ -86,10 +86,10 @@ def days_with_lotsoferrors():
 
     print("\nDays with more than 1'%' request errors\n")
 
-    for result in results:
-        print(result[0] +
+    for date, per in results:
+        print(date +
               " - Request Error percentage is:- " +
-              str(result[1]) +
+              str(per) +
               "%")
 
 
