@@ -1,14 +1,15 @@
 Ques 1:- What are the most popular three articles of all time?
  Ans:
-	 Candidate is jerk, alleges rival - views 342102
-	 Bears love berries, alleges bear - views 256365
-	 Bad things gone, say good people - views 171762
+	Candidate is jerk, alleges rival - views 338647
+	Bears love berries, alleges bear - views 253801
+	Bad things gone, say good people - views 170098
 
 Ques 2:- Who are the most popular article authors of all time? 
  Ans:
-	Ursula La Multa - views 512805
-	Rudolf von Treppenwitz - views 427781
-	Anonymous Contributor - views 171762
+	Ursula La Multa - views 507594
+	Rudolf von Treppenwitz - views 423457
+	Anonymous Contributor - views 170098
+	Markoff Chaney - views 84557
 
 Ques 3:- On which days did more than 1% of requests lead to errors?
  Ans:
